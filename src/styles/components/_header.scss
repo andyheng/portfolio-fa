@@ -1,0 +1,153 @@
+header {
+  background: $dk-black;
+  width: 100%;
+  transition: box-shadow 0.2s linear;
+  position: fixed;
+  z-index: 2;
+}
+.header-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.header-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2% 5%;
+  height: 60px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-burger {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0 5px;
+  &:active {
+    background: $md-black;
+  }
+}
+
+.header-burger-open {
+  background: #ccc;
+  .fa-bars {
+    color: $dk-black;
+  }
+  &:active {
+    background: $md-black;
+    .fa-bars {
+      color: $md-gray;
+    }
+  }
+}
+
+.fa-bars {
+  color: $md-gray;
+  font-size: 2.5em;
+}
+
+.nav {
+  box-shadow: 0 20px 16px -12px #000;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item {
+  margin: 0;
+  text-align: right;
+  border-top: 2px solid $md-black;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.75em 5%;
+  color: $md-gray;
+  text-decoration: none;
+  font-size: 1.2em;
+  &:active {
+    background: $md-black;
+  }
+}
+
+@include for-desktop-up {
+  header {
+    padding: 2em 0;
+  }
+  .header-title {
+    display: block;
+    padding: 0;
+    height: auto;
+  }
+  .header-container {
+    width: 85%;
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -47px;
+      width: 100%;
+      border-top: 12px solid $md-gray;
+      border-radius: 50%;
+      padding-bottom: 1em;
+    }
+  }
+  .header-burger {
+    display: none;
+  }
+
+  .nav {
+    box-shadow: none;
+    display: block !important; // to overwrite conditional render from vue on desktop
+  }
+
+  .nav-list {
+    flex-direction: row;
+  }
+
+  .nav-item {
+    margin: 0 1em;
+    border: none;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: inline;
+    padding: 0;
+    filter: brightness(0.8);
+    transition: filter 0.2s;
+    &:hover {
+    filter: brightness(1);
+    }
+  }
+ 
+  .nav-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    background: $md-gray;
+    transition: width 0.2s;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .header-scroll-active {
+    box-shadow: 0 0 100px #000;
+  }
+}

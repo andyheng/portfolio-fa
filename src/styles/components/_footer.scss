@@ -1,0 +1,32 @@
+footer {
+  background: #1a1a1a;
+  color: #cccccc;
+  padding: 1em;
+  text-align: center;
+}
+
+.footer-list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.footer-item {
+  margin: 0 1em;
+  border: none;
+  padding: 0.5em;
+}
+
+.footer-link {
+  display: block;
+  padding: 0;
+  color: $md-gray;
+  text-decoration: none;
+  border-bottom: 1px solid #8c8c8c;
+}
+
+@include for-desktop-up {
+  .footer-list {
+    display: none;
+  }
+}

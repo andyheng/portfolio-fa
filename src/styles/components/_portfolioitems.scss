@@ -1,0 +1,53 @@
+main {
+  flex: 1;
+  background: $md-black;
+  margin-top: 3em;
+}
+
+.portfolio-container {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 1em;
+}
+
+.portfolio-item {
+  margin: 2%;
+}
+
+.portfolio-img {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid $md-black;
+  box-shadow: 0 0 5px $dk-black;
+}
+
+@include for-tablet-portrait-up {
+  main {
+    margin-top: 3.5em;
+  }
+  .portfolio-container {
+    flex-flow: row wrap;
+    margin-top: 0.5em;
+  }
+  .portfolio-item {
+    width: 48%;
+    margin: 1%;
+  }
+}
+
+@include for-desktop-up {
+  main {
+    margin-top: 5.4em;
+  }
+  .portfolio-item {
+    width: 30%;
+    margin: 1.66%;
+  }
+  .portfolio-img {
+    transition: transform 0.2s linear;
+  }
+  .portfolio-img:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+  }
+}
