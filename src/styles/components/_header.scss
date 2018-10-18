@@ -133,6 +133,9 @@ header {
     &:hover {
     filter: brightness(1);
     }
+    &:active {
+      background: transparent;
+    }
   }
  
   .nav-link::after {
