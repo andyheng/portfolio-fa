@@ -56,8 +56,8 @@
   //mobile
   display: flex;
   align-items: center;
-  position: absolute;
-  top: 0;
+  position: fixed;
+  pointer-events: none;
 }
 
 .modal-header-title {
@@ -69,6 +69,7 @@
   order: 0;
   font-size: 2em;
   padding-right: 10px;
+  pointer-events: auto;
 }
 
 .modal-main-img {
@@ -83,13 +84,8 @@
 .modal-gallery {
   display: flex;
   flex-direction: column;
-  position: absolute;
   padding: 1em;
-  top: 80px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: scroll;
+  margin-top: 80px;
 }
 
 .modal-gallery-img {
@@ -100,7 +96,8 @@
   margin-top: 0;
 }
 .modal-gallery-img:last-child {
-  padding-bottom: 1em;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 @include for-tablet-portrait-up {
@@ -119,12 +116,12 @@
     padding-bottom: 1em;
     border: none;
     position: relative;
-    top: initial;
     width: auto;
     height: auto;
     background: #fff;
     display: block;
     align-items: normal;
+    pointer-events: auto;
   }
   .modal-header-title {
     text-align: center;
@@ -148,13 +145,7 @@
   .modal-gallery {
     flex-direction: row;
     margin: 0;
-    position: relative;
     padding: 0;
-    top: initial;
-    left: initial;
-    right: initial;
-    bottom: initial;
-    overflow: initial;
   }
 
   .modal-gallery-img {
