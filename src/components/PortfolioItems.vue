@@ -22,7 +22,7 @@ export default {
       portfolioItems: [],
       currentItem: {},
       showModal: false,
-      mobile: undefined
+      mobile: this.setMobileBoolean()
     };
   },
   methods: {
@@ -45,12 +45,16 @@ export default {
       this.currentItem = portfolioItem;
       this.showModal = true;
       this.toggleBodyModalOpenClass("addClass", "modal-open");
+    },
+    setMobileBoolean() {
+      const mobileMaxWidth = 600;
+      return innerWidth <= mobileMaxWidth;
     }
   },
   created() {
     this.portfolioItems = dummy;
     addEventListener("resize", () => {
-      this.mobile = innerWidth <= 600;
+      this.mobile = this.setMobileBoolean();
     });
     window.addEventListener("hashchange", () => {
       if (!location.hash) {
