@@ -22,21 +22,23 @@ export default {
       portfolioItems: [],
       currentItem: {},
       showModal: false,
+      addBodyClass: true,
+      bodyClassName: "modal-open",
       mobile: this.setMobileBoolean()
     };
   },
   methods: {
     closeModal() {
       history.pushState("", document.title, window.location.pathname);
-      this.toggleBodyModalOpenClass("removeClass", "modal-open");
+      this.toggleBodyModalOpenClass(!this.addBodyClass);
       this.showModal = false;
     },
-    toggleBodyModalOpenClass(addRemove, className) {
+    toggleBodyModalOpenClass(bodyClassBool) {
       const el = document.body;
-      if (addRemove === "addClass") {
-        el.classList.add(className);
+      if (bodyClassBool) {
+        el.classList.add(this.bodyClassName);
       } else {
-        el.classList.remove(className);
+        el.classList.remove(this.bodyClassName);
       }
     },
     showModalSetData(portfolioItem) {
@@ -44,7 +46,7 @@ export default {
       window.location.hash = formatTitle;
       this.currentItem = portfolioItem;
       this.showModal = true;
-      this.toggleBodyModalOpenClass("addClass", "modal-open");
+      this.toggleBodyModalOpenClass(this.addBodyClass);
     },
     setMobileBoolean() {
       const mobileMaxWidth = 600;
