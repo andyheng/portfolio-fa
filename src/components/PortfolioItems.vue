@@ -13,6 +13,9 @@
 <script>
 import dummy from "../assets/dummy";
 import Modal from "./Modal";
+import createHistory from 'history/createBrowserHistory';
+const history = createHistory();
+
 export default {
   components: {
     Modal
@@ -29,7 +32,7 @@ export default {
   },
   methods: {
     closeModal() {
-      history.pushState("", document.title, window.location.pathname);
+      history.replace("/");
       this.toggleBodyModalOpenClass(!this.addBodyClass);
       this.showModal = false;
     },
@@ -43,10 +46,7 @@ export default {
     },
     showModalSetData(portfolioItem) {
       const formatTitle = portfolioItem.title.replace(/ /g, "-").toLowerCase();
-      window.location.hash = formatTitle;
-      if (window.location.hash.substring(-1) == "/") {
-        window.location.hash = window.location.hash.slice(0, -1);
-      }
+      history.push(`/${formatTitle}`)
       this.currentItem = portfolioItem;
       this.showModal = true;
       this.toggleBodyModalOpenClass(this.addBodyClass);
@@ -61,8 +61,8 @@ export default {
     addEventListener("resize", () => {
       this.mobile = this.setMobileBoolean();
     });
-    window.addEventListener("hashchange", () => {
-      if (!location.hash) {
+    history.listen((location, action) => {
+      if (action == "POP") {
         this.closeModal();
       }
     })
