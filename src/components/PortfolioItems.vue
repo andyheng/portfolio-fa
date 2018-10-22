@@ -27,6 +27,7 @@ export default {
   },
   methods: {
     closeModal() {
+      history.pushState("", document.title, window.location.pathname);
       this.toggleBodyModalOpenClass("removeClass", "modal-open");
       this.showModal = false;
     },
@@ -39,6 +40,8 @@ export default {
       }
     },
     showModalSetData(portfolioItem) {
+      const formatTitle = portfolioItem.title.replace(/ /g, "-").toLowerCase();
+      window.location.hash = formatTitle;
       this.currentItem = portfolioItem;
       this.showModal = true;
       this.toggleBodyModalOpenClass("addClass", "modal-open");
@@ -49,6 +52,11 @@ export default {
     addEventListener("resize", () => {
       this.mobile = innerWidth <= 600;
     });
+    window.addEventListener("hashchange", () => {
+      if (!location.hash) {
+        this.closeModal();
+      }
+    })
   }
 };
 </script>
