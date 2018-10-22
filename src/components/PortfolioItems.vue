@@ -44,6 +44,9 @@ export default {
     showModalSetData(portfolioItem) {
       const formatTitle = portfolioItem.title.replace(/ /g, "-").toLowerCase();
       window.location.hash = formatTitle;
+      if (window.location.hash.substring(-1) == "/") {
+        window.location.hash = window.location.hash.slice(0, -1);
+      }
       this.currentItem = portfolioItem;
       this.showModal = true;
       this.toggleBodyModalOpenClass(this.addBodyClass);
