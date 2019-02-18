@@ -1,0 +1,14 @@
+@include for-desktop-up {
+  .fade-enter-active,
+  .fade-leave-active {
+    transition-duration: 0.3s;
+    transition-property: height, opacity;
+    transition-timing-function: linear;
+    overflow: hidden;
+  }
+
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0
+  }
+}
