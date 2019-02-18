@@ -3,7 +3,7 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import Routes from "./routes";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronCircleLeft, faChevronCircleRight, faBars, faTimes, faCircle, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faChevronCircleLeft, faChevronCircleRight, faBars, faTimes, faCircle, faEnvelope, faPhone, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueFire from 'vuefire'
@@ -28,6 +28,7 @@ library.add(faInstagram)
 library.add(faEnvelope)
 library.add(faPhone)
 library.add(faLinkedin)
+library.add(faChevronLeft)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 //firebase
