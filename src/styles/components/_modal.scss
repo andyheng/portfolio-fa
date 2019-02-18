@@ -100,11 +100,18 @@
   margin-bottom: 0;
 }
 
+.chev {
+  display: none;
+}
+
 @include for-tablet-portrait-up {
   .modal-container {
-    width: 85%;
+    // width: 85%;
     height: auto;
     padding: 1em;
+    // new
+    max-height: 95vh;
+    max-width: 80%;
   }
 
   .modal-open {
@@ -140,16 +147,26 @@
 
   .modal-main-img {
     display: block;
+    //new
+    position: relative;
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
   }
 
   .modal-gallery {
     flex-direction: row;
     margin: 0;
     padding: 0;
+    justify-content: center;
+    align-items: center;
   }
 
   .modal-gallery-img {
-    width: 25%;
+    // width: 25%;
+    width: auto;
     margin: 0 0.25em;
     margin-top: 1em;
     filter: brightness(0.5);
@@ -169,11 +186,78 @@
   .modal-gallery-img-active {
     filter: brightness(1);
   }
+
+  // new
+  .modal-gallery-img img {
+    max-height: 100px;
+    width: auto;
+  }
+
+  // chevrons
+  .chev {
+    display: block;
+    position: absolute;
+    font-size: 2.5em;
+    cursor: pointer;
+    color: rgb(41, 41, 41);
+    top: 50%;
+    opacity: 0.85;
+  }
+  .chev-circle {
+    color: white;
+    font-size: 0.75em;
+  }
+  .chev-left {
+    left: 5px;
+    &:active {
+      transform: translateX(-1px);
+    }
+  }
+  .chev-right {
+    right: 5px;
+    &:active {
+      transform: translateX(1px);
+    }
+  }
+}
+
+@include for-tablet-landscape-up {
+  .modal-container {
+    max-width: 50%;
+  }
 }
 
 @include for-desktop-up {
   .modal-container {
-    width: 55%
+    width: 535px;
+    max-width: none;
+    overflow-x: hidden;
+  }
+  .modal-main-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+  }
+
+  // new
+  .modal-main-img a {
+    width: auto;
+    height: 100%;
+  }
+  .modal-main-img .modal-img {
+    flex: 0 0;
+    width: auto;
+    height: 100%;
+  }
+
+  // new
+  .modal-gallery-img {
+    width: auto;
+  }
+  .modal-gallery-img img {
+    max-height: 100px;
+    width: auto;
   }
 }
 
