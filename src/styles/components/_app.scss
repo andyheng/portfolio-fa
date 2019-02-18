@@ -2,4 +2,40 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  position: relative;
+}
+
+main {
+  flex: 1;
+  background: $md-black;
+  margin-top: 3em;
+}
+
+.loading {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+}
+.loading:after {
+  content: "";
+  display: block;
+  width: 152px;
+  height: 152px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
