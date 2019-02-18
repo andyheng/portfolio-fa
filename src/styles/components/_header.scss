@@ -23,6 +23,9 @@ header {
   display: flex;
   align-items: center;
 }
+.header-logo .router-link-exact-active {
+  border-bottom: none;
+}
 
 .header-burger {
   min-height: 42px;
@@ -95,6 +98,8 @@ header {
     justify-content: space-between;
     align-items: center;
     position: relative;
+  }
+  .header-container-border {
     &::before {
       content: "";
       display: block;
@@ -104,6 +109,13 @@ header {
       border-top: 12px solid $md-gray;
       border-radius: 50%;
       padding-bottom: 1em;
+      opacity: 1;
+      transition: 0.3s ease;
+    }
+  }
+  .header-container-border-hidden {
+    &:before {
+      opacity: 0;
     }
   }
   .header-burger {
@@ -152,5 +164,10 @@ header {
 
   .header-scroll-active {
     box-shadow: 0 0 100px #000;
+  }
+  .router-link-exact-active {
+    color: #fff;
+    filter: brightness(1);
+    border-bottom: 1px solid #fff;
   }
 }
