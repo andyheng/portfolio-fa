@@ -4,6 +4,7 @@
 @import "./base/container";
 @import "./base/colours";
 @import "./base/queries";
+@import "./base/transitions";
 
 // components
 @import "./components/app";
@@ -11,3 +12,6 @@
 @import "./components/portfolioitems";
 @import "./components/modal";
 @import "./components/footer";
+@import "./components/admin";
+@import "./components/contact";
+@import "./components/notfound";
