@@ -1,13 +1,6 @@
-main {
-  flex: 1;
-  background: $md-black;
-  margin-top: 3em;
-}
-
 .portfolio-container {
   display: flex;
   flex-flow: column nowrap;
-  margin-top: 1em;
 }
 
 .portfolio-item {
@@ -27,7 +20,6 @@ main {
   }
   .portfolio-container {
     flex-flow: row wrap;
-    margin-top: 0.5em;
   }
   .portfolio-item {
     width: 48%;
@@ -39,15 +31,22 @@ main {
   main {
     margin-top: 5.4em;
   }
+  main .portfolio-container {
+    margin-top: 0.2em;
+  }
   .portfolio-item {
     width: 30%;
     margin: 1.66%;
   }
   .portfolio-img {
-    transition: transform 0.2s linear;
+    opacity: 0;
+    transition: transform 0.2s linear, opacity 2s ease;
   }
   .portfolio-img:hover {
     cursor: pointer;
     transform: scale(1.02);
+  }
+  .portfolio-img-fadein {
+    opacity: 1;
   }
 }
