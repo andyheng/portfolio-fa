@@ -1,0 +1,36 @@
+.container-404 {
+    color: #fff;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container-404 h1 {
+    font-size: 64px;
+}
+
+.list-404 {
+    list-style: none;
+    padding: 0;
+    margin: 1em 0;
+    text-align: center;
+}
+.list-404 li {
+    margin: 0.5em 0;
+}
+
+.link-404 {
+    text-decoration: none;
+    padding-bottom: 2px;
+    color: rgb(196, 196, 196);
+    &:hover {
+        color: #fff;
+        transition: 0.4s ease;
+    }
+}
+
+.img-404-jpg {
+    max-width: 80%
+}
