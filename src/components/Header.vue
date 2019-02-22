@@ -20,7 +20,7 @@
             <span class="nav-link" @click="handleLogout">Log out</span>
           </li>
           <li class="nav-item">
-            <router-link to="/extra" class="nav-link">Extra</router-link>
+            <router-link to="/personal" class="nav-link">Personal</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/contact" class="nav-link">Contact</router-link>
@@ -59,8 +59,10 @@ export default {
         if (user) {
           user.getIdTokenResult()
             .then(idTokenResult => {
-              user.admin = idTokenResult.claims.admin
-              this.loggedInAdmin = true;
+              // user.admin = idTokenResult.claims.admin
+              if (idTokenResult.claims.admin) {
+                this.loggedInAdmin = true;
+              }
             })
         } else {
           this.loggedInAdmin = false;
@@ -68,10 +70,10 @@ export default {
       })
     },
     showHeaderBorder() {
-      if (this.$route.name !== "Home") {
-        this.$refs.vueHeaderContainerRef.classList.add("header-container-border-hidden");
-      } else {
+      if (this.$route.name === "Home" || this.$route.name === "Personal") {
         this.$refs.vueHeaderContainerRef.classList.remove("header-container-border-hidden");
+      } else {
+        this.$refs.vueHeaderContainerRef.classList.add("header-container-border-hidden");
       }
     }
   },
