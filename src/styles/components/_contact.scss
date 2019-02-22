@@ -10,6 +10,15 @@
     background-attachment: fixed;
 }
 
+.contact-flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.contact-flex-container .contact {
+    flex: 0 0 50%;
+}
+
 .contact-header {
     text-align: center;
     margin-top: 2em;
@@ -53,6 +62,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .contact-flex-container {
+        display: block;
     }
     .contact-header {
         position: relative;
