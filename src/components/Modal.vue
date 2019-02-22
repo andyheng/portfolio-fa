@@ -24,23 +24,12 @@
               <font-awesome-icon icon="circle" class="chev-circle" />
               <font-awesome-icon icon="chevron-circle-right" />
             </span>
-
-            <a :href="currentImage" target="_blank">
               <img class="modal-img" :src="currentImage" :alt="currentItem.t" ref="currentImageRef">
-            </a>
           </div>
           <div class="modal-gallery" v-if="mobile">
-            <a
-              :href="img.src"
-              class="modal-gallery-img"
-              v-for="img in currentItem.i"
-              :key="img.id"
-              target="_blank"
-            >
-              <img class="modal-img" :src="img.src" :alt="img.src">
-            </a>
+            <img v-for="img in currentItem.i" :key="img.id" img class="modal-img modal-gallery-img" :src="img.src" :alt="img.src">
           </div>
-          <div class="modal-gallery" v-else>
+          <div class="modal-gallery" v-if="!mobile && currentItem.i.length > 1">
             <div
               class="modal-gallery-img"
               v-for="img in currentItem.i"
