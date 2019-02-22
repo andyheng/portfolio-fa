@@ -15,12 +15,12 @@
           </div>
           <div class="modal-main-img">
 
-            <span class="fa-layers fa-fw chev chev-left" @click="changeImage('left')">
+            <span class="fa-layers fa-fw chev chev-left" @click="changeImage('left')" v-if="currentItem.i.length > 1">
               <font-awesome-icon icon="circle" class="chev-circle" />
               <font-awesome-icon icon="chevron-circle-left" />
             </span>
 
-            <span class="fa-layers fa-fw chev chev-right" @click="changeImage('right')">
+            <span class="fa-layers fa-fw chev chev-right" @click="changeImage('right')" v-if="currentItem.i.length > 1">
               <font-awesome-icon icon="circle" class="chev-circle" />
               <font-awesome-icon icon="chevron-circle-right" />
             </span>
