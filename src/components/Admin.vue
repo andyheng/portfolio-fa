@@ -6,7 +6,11 @@
         <p v-else>There was an error uploading the project.</p>
       </div>
       <div class="form-container" v-if="loggedIn">
-        <h2>Add a new project</h2>
+        <h2>Add a new project to {{currentPortfolio}}</h2>
+        <div class="buttons-container">
+          <button @click="setPortfolio('projects')" class="btn">Upload to main portfolio</button>
+          <button @click="setPortfolio('personal')" class="btn">Upload to personal portfolio</button>
+        </div>
         <form @submit.prevent="handleSubmit" class="form">
           <div class="form-field form-title" >
             <label for="project-title">Project title</label>
@@ -57,7 +61,8 @@ export default {
       projectUploading: false,
       projectUploadingComplete: false,
       uploadHex: [],
-      loggedIn: false
+      loggedIn: false,
+      currentPortfolio: "projects"
     };
   },
   computed: {
@@ -66,6 +71,9 @@ export default {
     }
   },
   methods: {
+    setPortfolio(port) {
+      this.currentPortfolio = port;
+    },
     addInput() {
       this.inputs.push({
         id: `fruit${this.counter++}`,
@@ -175,13 +183,21 @@ export default {
       if (this.imageUploadInvalid) {
         return;
       }
+      auth.onAuthStateChanged(user => {
+        user.getIdTokenResult().then(idTokenResult => {
+          if (!idTokenResult.claims.admin) {
+            alert("Not verified account")
+            return;
+          }
+        })
+      })
       this.projectUploading = true;
       const projectData = {
         t: this.project.title,
         d: this.project.description,
         i: []
       };
-      db.collection("projects")
+      db.collection(this.currentPortfolio)
         .add(projectData)
         .then(key => {
           let id = key.id;
@@ -209,7 +225,7 @@ export default {
                     ...projectData,
                     i: firebaseImageUrls
                   };
-                  db.collection("projects")
+                  db.collection(this.currentPortfolio)
                     .doc(id)
                     .update(updateData);
                 })
@@ -241,11 +257,13 @@ export default {
   },
   created() {
     auth.onAuthStateChanged(user => {
-      if (user) {
-        this.loggedIn = true;
-      } else {
-        this.loggedIn = false;
-      }
+      user.getIdTokenResult().then(idTokenResult => {
+        if (idTokenResult.claims.admin) {
+          this.loggedIn = true;
+        } else {
+          this.loggedIn = false;
+        }
+      })
     })
   }
 };
@@ -256,4 +274,15 @@ export default {
   margin-top: 1em;
   color: #fff;
 }
+.buttons-container {
+  margin-top: 1em;
+}
+/* .buttons-container button {
+  border: none;
+  background: rgb(155, 155, 155);
+  padding: 0.75em;
+  margin: 0 0.5em;
+  font-size: 0.75em;
+  border-radius: 5px;
+} */
 </style>
