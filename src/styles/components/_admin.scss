@@ -67,6 +67,12 @@
   }
 }
 
+.btn {
+  @include button;
+  margin: 0 0.5em;
+  font-size: 14px;
+}
+
 .form-file {
   @include button;
   font-size: 14px;
