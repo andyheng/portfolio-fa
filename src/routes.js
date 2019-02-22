@@ -1,6 +1,6 @@
 import PortfolioItems from "./components/PortfolioItems";
 import Contact from "./components/Contact";
-import Extra from "./components/Extra";
+import Personal from "./components/Personal";
 import Admin from "./components/Admin";
 import Login from "./components/Login";
 import NotFound from "./components/NotFound";
@@ -9,7 +9,7 @@ import { auth } from "./main";
 export default [
   {path: "/", component: PortfolioItems, props: true, name: "Home"},
   {path: "/contact", component: Contact, name: "Contact"},
-  {path: "/extra", component: Extra, name: "Extra"},
+  {path: "/personal", component: Personal, name: "Personal"},
   {path: "*", component: NotFound, name: "404"},
   {
     path: "/admin", 
