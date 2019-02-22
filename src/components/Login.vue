@@ -1,6 +1,9 @@
 <template>
   <main>
     <div class="container">
+      <div class="alert-container alert-failure" v-if="loginErr">
+      This is not an authenticated account.
+    </div>
       <div class="form-container">
         <h2>Login</h2>
         <form @submit.prevent="handleSubmit" class="form">
@@ -29,7 +32,8 @@ export default {
       login: {
         email: "",
         password: ""
-      }
+      },
+      loginErr: false
     };
   },
   methods: {
@@ -42,8 +46,26 @@ export default {
         .then(() => {
             this.login.email = "";
             this.login.password = "";
-            this.$router.push({path: "/admin"})
-        });
+        })
+        .then(() => {
+          auth.onAuthStateChanged(user => {
+            if (!user) {
+              this.loginErr = true;
+              this.$refs.emailRef.focus();
+              setTimeout(() => {
+                this.loginErr = false;
+              }, 2500)
+            } else {
+              user.getIdTokenResult().then(idTokenResult => {
+                if (idTokenResult.claims.admin) {
+                  this.$router.push({path: "/admin"})
+                } else {
+                  auth.signOut();
+                }
+              })
+            }
+          })
+        })
     }
   },
   mounted() {
