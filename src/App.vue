@@ -5,7 +5,7 @@
       <div class="loading" v-show="portfolioItems.length === 0 && this.$route.name === 'Home'"></div>
     </transition>
     <transition name="fade" mode="out-in" @beforeLeave="beforeLeave" @enter="enter" @afterEnter="afterEnter">
-        <router-view :itemsProp="portfolioItems"></router-view>
+        <router-view :itemsProp="portfolioItems" :personalProp="personalItems"></router-view>
     </transition>
     <v-footer></v-footer>
   </div>
@@ -25,6 +25,7 @@ export default {
   data() {
     return {
       portfolioItems: [],
+      personalItems: [],
       prevHeight: 0
     }
   },
@@ -49,7 +50,8 @@ export default {
   },
   firestore() {
     return {
-      portfolioItems: db.collection("projects")
+      portfolioItems: db.collection("projects"),
+      personalItems: db.collection("personal")
     }
   }
 }
