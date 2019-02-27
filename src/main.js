@@ -54,6 +54,10 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   routes: Routes
 });
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title;
+  next();
+})
 
 new Vue({
   router: router,
