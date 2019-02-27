@@ -1,12 +1,15 @@
+html, body {
+  height: 100%;
+}
 #app {
   display: flex;
-  min-height: 100vh;
+  height: 100%;
   flex-direction: column;
   position: relative;
 }
 
 main {
-  flex: 1;
+  flex: 1 0 auto;
   background: $md-black;
   margin-top: 3em;
 }
