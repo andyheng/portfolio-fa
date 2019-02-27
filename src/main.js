@@ -7,10 +7,13 @@ import { faChevronCircleLeft, faChevronCircleRight, faBars, faTimes, faCircle, f
 import { faInstagram, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueFire from 'vuefire'
-import * as firebase from 'firebase'
-import 'firebase/firestore'
+// import * as firebase from 'firebase'
 import VueLazyLoad from "vue-lazyload";
-// import firebase from 'firebase/app'
+import firebase from 'firebase/app'
+import "firebase/auth"
+import 'firebase/firestore'
+import "firebase/functions"
+import "firebase/storage"
 
 Vue.config.productionTip = false
 
