@@ -6,7 +6,7 @@ import Login from "./components/Login";
 import NotFound from "./components/NotFound";
 
 import { auth } from "./main";
-const title = "Building";
+const title = "Fahdad Atin";
 export default [
   {path: "/", component: PortfolioItems, props: true, name: "Home", meta: {title}},
   {path: "/contact", component: Contact, name: "Contact", meta: {title}},
