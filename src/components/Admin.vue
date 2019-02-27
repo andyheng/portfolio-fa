@@ -6,7 +6,7 @@
         <p v-else>There was an error uploading the project.</p>
       </div>
       <div class="form-container" v-if="loggedIn">
-        <h2>Add a new project to {{currentPortfolio}}</h2>
+        <h2>Add a new project to <em>{{currentPortfolio}}</em></h2>
         <div class="buttons-container">
           <button @click="setPortfolio('projects')" class="btn">Upload to main portfolio</button>
           <button @click="setPortfolio('personal')" class="btn">Upload to personal portfolio</button>
@@ -277,12 +277,4 @@ export default {
 .buttons-container {
   margin-top: 1em;
 }
-/* .buttons-container button {
-  border: none;
-  background: rgb(155, 155, 155);
-  padding: 0.75em;
-  margin: 0 0.5em;
-  font-size: 0.75em;
-  border-radius: 5px;
-} */
 </style>
