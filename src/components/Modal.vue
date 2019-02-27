@@ -3,7 +3,7 @@
     <div class="modal-mask" @click="closeModal" v-show="show">
       <div class="modal-wrapper">
         <div class="modal-container" @click.stop ref="modalContainerRef">
-          <div class="modal-header">
+          <div class="modal-header" ref="modalHeaderRef">
             <div class="modal-header-title">
               <h2>{{currentItem.t}}</h2>
               <p>{{currentItem.d}}</p>
@@ -26,7 +26,7 @@
             </span>
               <img class="modal-img" :src="currentImage" :alt="currentItem.t" ref="currentImageRef">
           </div>
-          <div class="modal-gallery" v-if="mobile">
+          <div class="modal-gallery" v-if="mobile" ref="mobileGalleryRef">
             <img v-for="img in currentItem.i" :key="img.id" img class="modal-img modal-gallery-img" :src="img.src" :alt="img.src">
           </div>
           <div class="modal-gallery" v-if="!mobile && currentItem.i.length > 1">
@@ -110,7 +110,13 @@ export default {
     });
   },
   updated() {
-    // console.log(window.innerWidth)
+    // adjust modal header height
+    let header = this.$refs.modalHeaderRef.clientHeight
+    if (this.mobile && header > 79) {
+      this.$refs.mobileGalleryRef.style.marginTop = `${header}px`
+    }
+
+    // adjust modal width on desktop
     let width = window.innerWidth;
     let container = this.$refs.modalContainerRef.clientWidth;
     let image = this.$refs.currentImageRef.clientWidth;
