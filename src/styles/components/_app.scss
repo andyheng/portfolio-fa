@@ -18,7 +18,7 @@ main {
   width: 200px;
   height: 200px;
   position: absolute;
-  left: 50%;
+  left: 52%;
   top: 50vh;
   transform: translate(-50%, -50%);
 }
@@ -40,5 +40,11 @@ main {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@include for-tablet-landscape-up {
+  .loading {
+    left: 50%;
   }
 }
