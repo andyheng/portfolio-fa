@@ -15,12 +15,12 @@
           </div>
           <div class="modal-main-img">
 
-            <span class="fa-layers fa-fw chev chev-left" @click="changeImage('left')" v-if="currentItem.i.length > 1">
+            <span class="fa-layers fa-fw chev chev-left" @click="changeImage('left')" v-if="currentItem.i && currentItem.i.length > 1">
               <font-awesome-icon icon="circle" class="chev-circle" />
               <font-awesome-icon icon="chevron-circle-left" />
             </span>
 
-            <span class="fa-layers fa-fw chev chev-right" @click="changeImage('right')" v-if="currentItem.i.length > 1">
+            <span class="fa-layers fa-fw chev chev-right" @click="changeImage('right')" v-if="currentItem.i && currentItem.i.length > 1">
               <font-awesome-icon icon="circle" class="chev-circle" />
               <font-awesome-icon icon="chevron-circle-right" />
             </span>
@@ -29,7 +29,7 @@
           <div class="modal-gallery" v-if="mobile" ref="mobileGalleryRef">
             <img v-for="img in currentItem.i" :key="img.id" img class="modal-img modal-gallery-img" :src="img.src" :alt="img.src">
           </div>
-          <div class="modal-gallery" v-if="!mobile && currentItem.i.length > 1">
+          <div class="modal-gallery" v-if="!mobile && currentItem.i && currentItem.i.length > 1">
             <div
               class="modal-gallery-img"
               v-for="img in currentItem.i"
@@ -114,6 +114,8 @@ export default {
     let header = this.$refs.modalHeaderRef.clientHeight
     if (this.mobile && header > 79) {
       this.$refs.mobileGalleryRef.style.marginTop = `${header}px`
+    } else if (this.mobile) {
+      this.$refs.mobileGalleryRef.style.marginTop = "80px";
     }
 
     // adjust modal width on desktop
