@@ -1,6 +1,6 @@
 <template>
   <main>
-      <div class="container portfolio-container">
+    <div class="container portfolio-container" v-if="portfolioItems">
       <div class="portfolio-item" v-for="portfolioItem in portfolioItems" :key="portfolioItem.id">
         <img
           class="portfolio-img"
@@ -38,7 +38,7 @@ export default {
     fade(e) {
       let target = e.target;
       setTimeout(() => {
-        target.classList.add("portfolio-img-fadein")
+        target.classList.add("portfolio-img-fadein");
       }, 150);
     },
     closeModal() {

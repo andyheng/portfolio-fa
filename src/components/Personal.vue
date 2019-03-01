@@ -1,6 +1,6 @@
 <template>
   <main>
-      <div class="container portfolio-container">
+      <div class="container portfolio-container" v-if="personalItems">
       <div class="portfolio-item" v-for="personalItem in personalItems" :key="personalItem.id">
         <img
           class="portfolio-img"
