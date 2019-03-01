@@ -50,3 +50,10 @@
     opacity: 1;
   }
 }
+
+@include for-large-desktop-up {
+  .portfolio-item {
+    width: 22%;
+    margin: 1.5%;
+  }
+}
