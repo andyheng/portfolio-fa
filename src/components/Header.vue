@@ -4,7 +4,7 @@
       <div class="header-title">
         <div class="header-logo">
           <router-link to="/">
-            <img src="../assets/logo-rs.png" @click="toggleNav">
+            <img src="../assets/logo-rs.png">
           </router-link>
         </div>
         <div class="header-burger" :class="{'header-burger-open':showNav}" @click="toggleNav">
