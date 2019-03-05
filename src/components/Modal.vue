@@ -27,7 +27,7 @@
               <img class="modal-img" :src="currentImage" :alt="currentItem.t" ref="currentImageRef">
           </div>
           <div class="modal-gallery" v-if="mobile" ref="mobileGalleryRef">
-            <img v-for="img in currentItem.i" :key="img.id" img class="modal-img modal-gallery-img" :src="img.src" :alt="img.src">
+            <img v-for="img in currentItem.i" :key="img.id" img class="modal-img modal-gallery-img" v-lazy="img.src" :alt="img.src">
           </div>
           <div class="modal-gallery" v-if="!mobile && currentItem.i && currentItem.i.length > 1">
             <div
