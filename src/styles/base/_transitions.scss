@@ -1,5 +1,4 @@
-@include for-desktop-up {
-  .fade-enter-active,
+.fade-enter-active,
   .fade-leave-active {
     transition-duration: 0.2s;
     transition-property: height, opacity;
@@ -11,4 +10,3 @@
   .fade-leave-active {
     opacity: 0
   }
-}
