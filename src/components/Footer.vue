@@ -3,16 +3,16 @@
     <div class="container">
       <ul class="footer-list">
           <li class="footer-item">
-            <a class="footer-link" href="#">Contact</a>
+            <router-link to="/contact" class="footer-link">Contact</router-link>
           </li>
           <li class="footer-item">
-            <a class="footer-link" href="#">Instagram</a>
+            <router-link to="/personal" class="footer-link">Personal</router-link>
           </li>
           <li class="footer-item">
-            <a class="footer-link" href="#">Extra</a>
+            <a href="https://instagram.com" class="footer-link">Instagram</a>
           </li>
         </ul>
-      <p>Some footer text.</p>
+      <p>Built by AH @ Subsequent Elements.</p>
     </div>
   </footer>
 </template>
