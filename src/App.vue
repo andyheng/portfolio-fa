@@ -1,11 +1,10 @@
 <template>
   <div id="app">
     <v-header></v-header>
-    <transition name="fade">
-      <div class="loading" v-show="portfolioItems.length === 0 && this.$route.name === 'Home'"></div>
-    </transition>
     <transition name="fade" mode="out-in" @beforeLeave="beforeLeave" @enter="enter" @afterEnter="afterEnter">
-        <router-view :itemsProp="portfolioItems" :personalProp="personalItems"></router-view>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
     </transition>
     <v-footer></v-footer>
   </div>
@@ -14,7 +13,6 @@
 <script>
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { db } from "./main";
 
 export default {
   name: 'app',
@@ -24,8 +22,6 @@ export default {
   },
   data() {
     return {
-      portfolioItems: [],
-      personalItems: [],
       prevHeight: 0
     }
   },
@@ -46,12 +42,6 @@ export default {
     },
     afterEnter(e) {
       e.style.height = "auto";
-    }
-  },
-  firestore() {
-    return {
-      portfolioItems: db.collection("projects"),
-      personalItems: db.collection("personal")
     }
   }
 }
