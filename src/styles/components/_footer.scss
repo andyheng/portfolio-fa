@@ -1,9 +1,12 @@
 footer {
+  width: 100%;
+  height: auto;
   background: #1a1a1a;
   color: #cccccc;
   padding: 1em;
   text-align: center;
   flex-shrink: 0;
+  margin-top: 20px;
 }
 
 .footer-list {
@@ -26,7 +29,15 @@ footer {
   border-bottom: 1px solid #8c8c8c;
 }
 
+footer p {
+  font-size: 12px;
+}
+
 @include for-desktop-up {
+  footer {
+    height: auto;
+    margin-top: 0;
+  }
   .footer-list {
     display: none;
   }
