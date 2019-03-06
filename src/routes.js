@@ -1,18 +1,12 @@
 import { auth } from "./main";
-import createHistory from "history/createBrowserHistory";
-const history = createHistory();
 const title = "Fahdad Atin";
 const loadView = view => {
   return () => import(`@/components/${view}.vue`)
 }
 export default [
+  {path: "/", redirect: "/home"},
   {path: "/home", component: loadView("PortfolioItems"), props: true, name: "Home", meta: {title}},
   {path: "/home/*", redirect: "/home"},
-  // {path: "/", component: loadView("PortfolioItems"), props: true, name: "Home", meta: {title}, beforeEnter: (to, from, next) => {
-  //   history.replace("/");
-  //   next()
-  // }},
-  {path: "/", redirect: "/home"},
   {path: "/contact", component: loadView("Contact"), name: "Contact", meta: {title}},
   {path: "/personal", component: loadView("Personal"), name: "Personal", meta: {title}},
   {path: "/personal/*", redirect: "/personal"},
