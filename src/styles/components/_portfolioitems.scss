@@ -1,10 +1,23 @@
 .portfolio-container {
   display: flex;
   flex-flow: column nowrap;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.items-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.buttons-container {
+  align-self: center;
 }
 
 .portfolio-item {
-  margin: 2%;
+  width: 45%;
+  margin: 2.5%;
+  position: relative;
 }
 
 .portfolio-img {
@@ -14,46 +27,44 @@
   box-shadow: 0 0 5px $dk-black;
 }
 
-@include for-tablet-portrait-up {
-  main {
-    margin-top: 3.5em;
-  }
-  .portfolio-container {
-    flex-flow: row wrap;
-  }
-  .portfolio-item {
-    width: 48%;
-    margin: 1%;
-  }
+.portfolio-img {
+  opacity: 0;
+  transition: opacity .5s ease-in;
+}
+.portfolio-img-fadein {
+  opacity: 1;
 }
 
-@include for-desktop-up {
-  main {
-    margin-top: 5.4em;
-  }
-  main .portfolio-container {
-    margin-top: 0.2em;
-  }
+@include for-tablet-portrait-up {
   .portfolio-item {
     width: 30%;
     margin: 1.66%;
   }
+}
+
+@include for-tablet-landscape-up {
+  .portfolio-item {
+    width: 22%;
+    margin: 1.5%;
+  }
+}
+
+@include for-desktop-up {
+  .portfolio-container {
+    margin-top: 3em;
+  }
   .portfolio-img {
-    opacity: 0;
-    transition: transform 0.2s linear, opacity 2s ease;
+    transition: transform 0.2s linear, opacity .5s ease-in;
   }
   .portfolio-img:hover {
     cursor: pointer;
     transform: scale(1.02);
   }
-  .portfolio-img-fadein {
-    opacity: 1;
-  }
 }
 
 @include for-large-desktop-up {
   .portfolio-item {
-    width: 22%;
-    margin: 1.5%;
+    width: 18%;
+    margin: 1% 1%;
   }
 }
