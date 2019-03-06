@@ -70,8 +70,10 @@ export default {
     closeModal() {
       history.replace("/");
       this.toggleBodyModalOpenClass(!this.addBodyClass);
-      this.currentItem = {};
       this.showModal = false;
+      this.$nextTick(() => {
+        this.currentItem = {}
+      })
     },
     toggleBodyModalOpenClass(bodyClassBool) {
       const el = document.body;
