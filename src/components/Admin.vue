@@ -195,7 +195,8 @@ export default {
       const projectData = {
         t: this.project.title,
         d: this.project.description,
-        i: []
+        i: [],
+        da: Date.now()
       };
       db.collection(this.currentPortfolio)
         .add(projectData)
