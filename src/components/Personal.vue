@@ -131,7 +131,7 @@ export default {
   },
   created() {
     this.mobile ? (this.page.itemsPerPage = 5) : (this.page.itemsPerPage = 10);
-    this.ref.itemsRef = db.collection("personal");
+    this.ref.itemsRef = db.collection("personal").orderBy("da", "desc");
     const ref = this.ref.itemsRef.limit(this.page.itemsPerPage);
     this.loadItems(ref);
 
