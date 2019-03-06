@@ -271,7 +271,7 @@ export default {
 
 <style scoped>
 .container {
-  margin-top: 1em;
+  margin-top: 4em;
   color: #fff;
 }
 .buttons-container {
