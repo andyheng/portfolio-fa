@@ -68,7 +68,7 @@ export default {
       }
     },
     closeModal() {
-      history.replace("/");
+      history.replace("/#/personal");
       this.toggleBodyModalOpenClass(!this.addBodyClass);
       this.showModal = false;
       this.$nextTick(() => {
@@ -85,7 +85,7 @@ export default {
     },
     showModalSetData(portfolioItem) {
       const formatTitle = portfolioItem.t.replace(/ /g, "-").toLowerCase();
-      history.push(`/${formatTitle}`);
+      history.push(`/#/personal/${formatTitle}`);
       this.currentItem = portfolioItem;
       this.showModal = true;
       this.toggleBodyModalOpenClass(this.addBodyClass);
