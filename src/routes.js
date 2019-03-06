@@ -1,10 +1,3 @@
-// import PortfolioItems from "./components/PortfolioItems";
-// import Contact from "./components/Contact";
-// import Personal from "./components/Personal";
-import Admin from "./components/Admin";
-import Login from "./components/Login";
-// import NotFound from "./components/NotFound";
-
 import { auth } from "./main";
 const title = "Fahdad Atin";
 const loadView = view => {
