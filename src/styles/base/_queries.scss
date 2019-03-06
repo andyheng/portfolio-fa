@@ -17,7 +17,7 @@
 }
 
 @mixin for-large-desktop-up {
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1680px) {
     @content;
   }
 }
