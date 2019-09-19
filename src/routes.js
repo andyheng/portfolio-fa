@@ -4,12 +4,13 @@ const loadView = view => {
   return () => import(`@/components/${view}.vue`)
 }
 export default [
-  {path: "/", redirect: "/home"},
-  {path: "/home", component: loadView("PortfolioItems"), props: true, name: "Home", meta: {title}},
-  {path: "/home/*", redirect: "/home"},
+  {path: "/", redirect: "/work"},
+  {path: "/work", component: loadView("ShowItems"), name: "Work", meta: {title}, props: {currentRoute: "projects"}},
+  {path: "/work/*", redirect: "/work"},
   {path: "/contact", component: loadView("Contact"), name: "Contact", meta: {title}},
-  {path: "/personal", component: loadView("Personal"), name: "Personal", meta: {title}},
+  {path: "/personal", component: loadView("ShowItems"), name: "Extra", meta: {title}, props: {currentRoute: "personal"}},
   {path: "/personal/*", redirect: "/personal"},
+  {path: "/edit", component: loadView("EditItems"), name: "Edit", meta: {title}},
   {path: "*", component: loadView("NotFound"), name: "404", meta: {title}},
   {
     path: "/admin", 
