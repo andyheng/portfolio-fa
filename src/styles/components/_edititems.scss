@@ -1,0 +1,33 @@
+.form-edit {
+    @include form;
+}
+
+.buttons-switch {
+    display: flex;
+  }
+
+  .edit-btn {
+    padding: 5px 0;
+    width: 50%;
+  }
+
+  form > .edit-btn {
+    width: 100%;
+    margin: 0;
+  }
+
+  .portfolio-item > .edit-btn {
+    width: 49%;
+    margin: 5px 0.5% 0 0.5%;
+  }
+
+  .edit-input {
+    padding: 0.5em 0;
+    display: flex;
+    flex-flow: column;
+  }
+  .edit-input > textarea,
+  .edit-input > input {
+    padding: 5px;
+    margin: 5px 0;
+  }
