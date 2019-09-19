@@ -6,7 +6,7 @@
     </div>
       <div class="form-container">
         <h2>Login</h2>
-        <form @submit.prevent="handleSubmit" class="form">
+        <form @submit.prevent="handleSubmit" class="form-login">
           <div class="form-field form-title">
             <label for="login-email">Email</label>
             <input type="email" id="login-email" v-model="login.email" ref="emailRef">
@@ -76,7 +76,7 @@ export default {
 
 <style scoped>
 .container {
-  margin-top: 4em;
+  margin-top: 11em;
   color: #fff;
 }
 </style>

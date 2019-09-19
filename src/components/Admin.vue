@@ -11,7 +11,7 @@
           <button @click="setPortfolio('projects')" class="btn">Upload to main portfolio</button>
           <button @click="setPortfolio('personal')" class="btn">Upload to personal portfolio</button>
         </div>
-        <form @submit.prevent="handleSubmit" class="form">
+        <form @submit.prevent="handleSubmit" class="form form-admin">
           <div class="form-field form-title" >
             <label for="project-title">Project title</label>
             <input type="text" id="project-title" v-model="project.title" required>
@@ -272,7 +272,7 @@ export default {
 
 <style scoped>
 .container {
-  margin-top: 4em;
+  margin-top: 11em;
   color: #fff;
 }
 .buttons-container {
