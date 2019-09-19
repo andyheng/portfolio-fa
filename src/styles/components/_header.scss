@@ -1,9 +1,16 @@
 header {
-  background: $dk-black;
   width: 100%;
   transition: box-shadow 0.2s linear;
   position: fixed;
   z-index: 2;
+  display: flex;
+  align-items: center;
+}
+.header-solid {
+  background: $dk-black;
+}
+.header-transparent {
+  background: transparent;
 }
 .header-container {
   display: flex;
@@ -19,12 +26,13 @@ header {
   height: 60px;
 }
 
-.header-logo {
-  display: flex;
-  align-items: center;
+.header-logo-container > a {
+  display: block;
+  height: 35px;
 }
-.header-logo .router-link-exact-active {
-  border-bottom: none;
+
+.header-logo {
+  height: 100%;
 }
 
 .header-burger {
@@ -39,7 +47,7 @@ header {
 }
 
 .header-burger-open {
-  background: #ccc;
+  background: $beige;
   .fa-bars {
     color: $dk-black;
   }
@@ -52,7 +60,7 @@ header {
 }
 
 .fa-bars {
-  color: $md-gray;
+  color: $beige;
   font-size: 2.5em;
 }
 
@@ -74,45 +82,62 @@ header {
 .nav-link {
   display: block;
   padding: 0.75em 5%;
-  color: $md-gray;
   text-decoration: none;
-  font-size: 1.2em;
+  color: $beige;
   &:active {
     background: $md-black;
   }
+}
+
+.nav-link > img {
+  max-height: 26px; // same as image heights
 }
 
 @include for-tablet-portrait-up {
   .header-title {
     padding: 2% 8.2%;
   }
+
+  .nav-item {
+    padding: 0 3.5%;
+  }
 }
 
 @include for-desktop-up {
   header {
-    padding: 2em 0;
+    // height: 238px;
+    // height: 35%;
+    height: 200px;
   }
   .header-title {
     display: block;
     padding: 0;
+    padding-left: 21px;
     height: auto;
   }
   .header-container {
-    width: 82.5%;
+    // width: 82.5%;
+    width: 92.5%;
     padding: 0;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     position: relative;
   }
+
+  .header-logo-container > a {
+    height: 50px;
+  }
+
   .header-container-border {
     &::before {
       content: "";
       display: block;
       position: absolute;
-      bottom: -47px;
+      bottom: -90px;
       width: 100%;
-      border-top: 12px solid $md-gray;
+      // border-top: 12px solid $md-gray;
+      border-top: 12px solid $beige;
       border-radius: 50%;
       padding-bottom: 1em;
       opacity: 1;
@@ -131,6 +156,7 @@ header {
   .nav {
     box-shadow: none;
     display: block !important; // to overwrite conditional render from vue on desktop
+    padding-right: 15px;
   }
 
   .nav-list {
@@ -138,42 +164,51 @@ header {
   }
 
   .nav-item {
-    margin: 0 1em;
+    margin: 0 3em;
     border: none;
     padding: 0;
+    height: 25px;
+  }
+
+  .nav-item:last-child {
+    margin-right: 6px;
   }
 
   .nav-link {
-    display: inline;
+    display: inline-block;
+    height: 100%;
     padding: 0;
-    filter: brightness(0.8);
+    filter: blur(0);
     transition: filter 0.2s;
     &:hover {
-    filter: brightness(1);
+    filter: blur(4px);
     }
     &:active {
       background: transparent;
     }
-  }
- 
-  .nav-link::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 1px;
-    background: $md-gray;
-    transition: width 0.2s;
-  }
-  .nav-link:hover::after {
-    width: 100%;
   }
 
   .header-scroll-active {
     box-shadow: 0 0 100px #000;
   }
   .router-link-exact-active {
-    color: #fff;
-    filter: brightness(1);
-    border-bottom: 1px solid #fff;
+    // color: #fff;
+    // filter: brightness(1);
+    // border-bottom: 1px solid #fff;
+    filter: blur(4px);
+    // height: 45px;
+  }
+}
+
+@include for-large-desktop-up {
+  header {
+    // padding: 0;
+    height: 238px;
+  }
+
+  .header-container-border {
+    &::before {
+      bottom: -109px;
+    }
   }
 }
