@@ -27,7 +27,7 @@
               <img class="modal-img" :src="currentImage" :alt="currentItem.t" ref="currentImageRef">
           </div>
           <div class="modal-gallery" v-if="mobile" ref="mobileGalleryRef">
-            <img v-for="img in currentItem.i" :key="img.id" img class="modal-img modal-gallery-img" v-lazy="img.src" :alt="img.src">
+            <img v-for="img in currentItem.i" :key="img.id" img class="modal-img modal-gallery-img" v-lazy="img.src" :alt="currentItem.t" @load="fade">
           </div>
           <div class="modal-gallery" v-if="!mobile && currentItem.i && currentItem.i.length > 1">
             <div
@@ -37,7 +37,7 @@
               :key="img.id"
               :class="{'modal-gallery-img-active':img.id == isActive}"
             >
-              <img class="modal-img" :src="img.src" :alt="img">
+              <img class="modal-img" :src="img.src" :alt="currentItem.t" @load="fade">
             </div>
           </div>
         </div>
@@ -61,6 +61,10 @@ export default {
     };
   },
   methods: {
+    fade(e) {
+      let target = e.target;
+      target.classList.add("modal-fadein");
+    },
     closeModal() {
       this.$emit("close");
       setTimeout(() => {
@@ -70,7 +74,6 @@ export default {
       }, 500);
     },
     updateMainImage(img) {
-      // img.selected = !img.selected;
       this.currentImage = img.src;
     },
     changeImage(direction) {
@@ -147,3 +150,13 @@ export default {
   }
 };
 </script>
+
+<style>
+.modal-gallery .modal-img {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+.modal-gallery .modal-fadein {
+  opacity: 1;
+}
+</style>
