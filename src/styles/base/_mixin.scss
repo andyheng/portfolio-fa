@@ -1,0 +1,22 @@
+@mixin button {
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 50px;
+    font-size: 12px;
+    border-radius: 0;
+    color: $beige;
+    border: 1px solid $beige;
+    background: $dk-black;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      filter: invert(100);
+    }
+  }
+
+  @mixin form {
+    display: flex;
+    flex-flow: column;
+    color: $beige;
+  }
