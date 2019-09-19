@@ -14,6 +14,7 @@
             @load="fade"
             @click="showModalSetData(portfolioItem)"
             v-lazy="portfolioItem.i[0].src"
+            :alt="portfolioItem.i[0].t"
           >
         </div>
       </div>
