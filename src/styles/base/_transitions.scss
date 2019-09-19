@@ -1,7 +1,8 @@
 .fade-enter-active,
   .fade-leave-active {
     transition-duration: 0.2s;
-    transition-property: height, opacity;
+    // transition-property: height, opacity;
+    transition-property: opacity;
     transition-timing-function: linear;
     overflow: hidden;
   }

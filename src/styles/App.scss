@@ -6,6 +6,7 @@
 @import "./base/queries";
 @import "./base/transitions";
 @import "./base/animation";
+@import "./base/mixin";
 
 // components
 @import "./components/app";
@@ -16,3 +17,4 @@
 @import "./components/admin";
 @import "./components/contact";
 @import "./components/notfound";
+@import "./components/edititems";
