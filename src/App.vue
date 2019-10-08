@@ -9,7 +9,7 @@
         <router-view :key="$route.fullPath" :mobile="mobile"></router-view>
       </keep-alive>
     </transition>
-    <v-footer></v-footer>
+    <!-- <v-footer></v-footer> -->
   </div>
 </template>
 
