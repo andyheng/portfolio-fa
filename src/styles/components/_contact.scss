@@ -69,6 +69,14 @@
     }
 }
 
+.contact-link {
+    color: $beige;
+    text-transform: uppercase;
+    font-family: "Anton";
+    font-size: 50px;
+    letter-spacing: -2px;
+}
+
 @include for-tablet-landscape-up {
     .contact-page-container {
         flex-flow: row;
@@ -127,5 +135,11 @@
         left: -1.75em;
         font-size: 1.5em;
         top: 6px;
+    }
+}
+
+@include for-desktop-up {
+    .contact-page-container {
+        margin-top: 150px;
     }
 }

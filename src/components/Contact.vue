@@ -1,17 +1,21 @@
 <template>
     <main>
         <div class="contact-page-container">
-            <a href="https://instagram.com/fahdadatin" class="contact-link">
-                <img src="../assets/ui-insta.png" alt="Instagram Link">
+            <a href="https://instagram.com/fahdadatin" class="contact-link" target="_blank">
+                <!-- <img src="../assets/ui-insta.png" alt="Instagram Link"> -->
+                Instagram
             </a>
-            <a href="https://tumblr.com/fahdadatin" class="contact-link">
-                <img src="../assets/ui-tumblr.png" alt="Tumblr Link">
+            <a href="https://fahdadatin.tumblr.com" class="contact-link" target="_blank">
+                <!-- <img src="../assets/ui-tumblr.png" alt="Tumblr Link"> -->
+                Tumblr
             </a>
-            <a href="https://twitter.com/pantherkid" class="contact-link">
-                <img src="../assets/ui-twitter.png" alt="Twitter Link">
+            <a href="https://twitter.com/pantherkid" class="contact-link" target="_blank">
+                <!-- <img src="../assets/ui-twitter.png" alt="Twitter Link"> -->
+                Twitter
             </a>
-            <a href="#" class="contact-link">
-                <img src="../assets/ui-email.png" alt="Email Address">
+            <a href="mailto:fahdad@fahdadatin.com" class="contact-link">
+                <!-- <img src="../assets/ui-email.png" alt="Email Address"> -->
+                Email
             </a>
         </div>
     </main>
@@ -28,7 +32,6 @@ export default {
 <style>
 
 .contact-page-container {
-    margin-top: 150px;
     display: flex;
     flex-flow: column;
     align-items: center;
