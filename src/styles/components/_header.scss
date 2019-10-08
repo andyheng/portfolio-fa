@@ -23,12 +23,21 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 2% 5%;
-  height: 60px;
+  // height: 60px;
 }
 
-.header-logo-container > a {
-  display: block;
-  height: 35px;
+// .header-logo-container > a {
+//   display: block;
+//   height: 35px;
+// }
+
+.header-item {
+  font-family: "Anton";
+  text-decoration: none;
+  color: $beige;
+  text-transform: uppercase;
+  font-size: 58px;
+  letter-spacing: -3px;
 }
 
 .header-logo {
@@ -84,6 +93,10 @@ header {
   padding: 0.75em 5%;
   text-decoration: none;
   color: $beige;
+  font-family: "Anton";
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
   &:active {
     background: $md-black;
   }
@@ -134,7 +147,8 @@ header {
       content: "";
       display: block;
       position: absolute;
-      bottom: -90px;
+      // bottom: -90px;
+      bottom: -72px;
       width: 100%;
       // border-top: 12px solid $md-gray;
       border-top: 12px solid $beige;
@@ -167,7 +181,7 @@ header {
     margin: 0 3em;
     border: none;
     padding: 0;
-    height: 25px;
+    // height: 25px;
   }
 
   .nav-item:last-child {

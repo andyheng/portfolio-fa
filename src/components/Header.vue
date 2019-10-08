@@ -3,8 +3,9 @@
     <div class="container header-container header-container-border" ref="vueHeaderContainerRef">
       <div class="header-title">
         <div class="header-logo-container">
-          <router-link to="/">
-            <img src="../assets/ui-logo.png" alt="Fahdad Atin" class="header-logo">
+          <router-link to="/" class="header-item">
+            <!-- <img src="../assets/ui-logo.png" alt="Fahdad Atin" class="header-logo"> -->
+            Fahdad Atin
           </router-link>
         </div>
         <div class="header-burger" :class="{'header-burger-open':showNav}" @click="toggleNav">
@@ -24,18 +25,21 @@
           </li>
           
           <li class="nav-item">
-            <router-link to="/work" class="nav-link">
+            <!-- <router-link to="/work" class="nav-link">
               <img src="../assets/ui-work.png" alt="Work">
-            </router-link>
+            </router-link> -->
+            <router-link to="/work" class="nav-link">Work</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/personal" class="nav-link">
-              <img src="../assets/ui-extra.png" alt="Extra">
+              Extra
+              <!-- <img src="../assets/ui-extra.png" alt="Extra"> -->
             </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/contact" class="nav-link">
-              <img src="../assets/ui-contact.png" alt="Contact">
+              Contact
+              <!-- <img src="../assets/ui-contact.png" alt="Contact"> -->
             </router-link>
           </li>
         </ul>
