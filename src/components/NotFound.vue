@@ -1,8 +1,6 @@
 <template>
     <main>
         <div class="container container-404">
-            <img src="../assets/img/collar.gif" alt="simpsons awkward collar pull gif" v-if="!mobile">
-            <img src="../assets/img/collar.jpg" alt="simpsons awkward collar pull jpg" v-else class="img-404-jpg">
             <h1>404</h1>
             <p>Sorry, I couldn't find the page you were looking for. Try one of these pages:</p>
             <ul class="list-404">
@@ -32,3 +30,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .container-404 {
+        margin-top: 11em;
+    }
+</style>
