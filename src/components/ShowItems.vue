@@ -104,8 +104,9 @@ export default {
       }
     },
     showModalSetData(item) {
+      const routeName = this.$route.name.toLowerCase();
       const formatTitle = item.t.replace(/ /g, "-").toLowerCase();
-      history.push(`/#/personal/${formatTitle}`);
+      history.push(`/#/${routeName}/${formatTitle}`);
       this.currentItem = item;
       this.showModal = true;
       this.toggleBodyModalOpenClass(this.addBodyClass);
