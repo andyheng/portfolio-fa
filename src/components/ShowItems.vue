@@ -86,8 +86,9 @@ export default {
       }
     },
     closeModal() {
-      //   history.replace(`/#/${}`);
-      history.replace("/#/personal");
+      // history.replace("/#/personal");
+      const routeName = this.$route.name.toLowerCase();
+      history.replace(`/#/${routeName}`)
       this.toggleBodyModalOpenClass(!this.addBodyClass);
       this.showModal = false;
       this.$nextTick(() => {

@@ -31,7 +31,7 @@
             <router-link to="/work" class="nav-link">Work</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/personal" class="nav-link">
+            <router-link to="/extra" class="nav-link">
               Extra
               <!-- <img src="../assets/ui-extra.png" alt="Extra"> -->
             </router-link>

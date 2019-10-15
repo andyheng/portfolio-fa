@@ -8,8 +8,8 @@ export default [
   {path: "/work", component: loadView("ShowItems"), name: "Work", meta: {title}, props: {currentRoute: "projects"}},
   {path: "/work/*", redirect: "/work"},
   {path: "/contact", component: loadView("Contact"), name: "Contact", meta: {title}},
-  {path: "/personal", component: loadView("ShowItems"), name: "Extra", meta: {title}, props: {currentRoute: "personal"}},
-  {path: "/personal/*", redirect: "/personal"},
+  {path: "/extra", component: loadView("ShowItems"), name: "Extra", meta: {title}, props: {currentRoute: "personal"}},
+  {path: "/extra/*", redirect: "/extra"},
   {path: "/edit", component: loadView("EditItems"), name: "Edit", meta: {title}},
   {path: "*", component: loadView("NotFound"), name: "404", meta: {title}},
   {
