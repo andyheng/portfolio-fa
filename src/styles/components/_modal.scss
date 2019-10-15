@@ -116,7 +116,16 @@
   display: none;
 }
 
+.icon-times {
+  display: none;
+}
+
 @include for-tablet-portrait-up {
+  .icon-left {
+    display: none;
+  }
+
+
   .modal-container {
     // width: 85%;
     height: auto;
@@ -259,6 +268,14 @@
     justify-content: center;
     align-items: center;
     height: 400px;
+  }
+
+  .icon-times {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    color: white;
   }
 
   // new

@@ -2,6 +2,7 @@
   <transition name="modal">
     <div class="modal-mask" @click="closeModal" v-show="show">
       <div class="modal-wrapper">
+        <font-awesome-icon icon="times" class="icon-times"/>
         <div class="modal-container" @click.stop ref="modalContainerRef">
           <div class="modal-header" ref="modalHeaderRef">
             <div class="modal-header-title">
@@ -9,8 +10,9 @@
               <p>{{currentItem.d}}</p>
             </div>
             <div class="modal-header-close" @click="closeModal">
-              <font-awesome-icon v-if="mobile" icon="chevron-left"/>
-              <font-awesome-icon v-else icon="times"/>
+              <!-- <font-awesome-icon v-if="mobile" icon="chevron-left"/> -->
+              <!-- <font-awesome-icon v-else icon="times" class="icon-times"/> -->
+              <font-awesome-icon icon="chevron-left" class="icon-left"/>
             </div>
           </div>
           <div class="modal-main-img">
